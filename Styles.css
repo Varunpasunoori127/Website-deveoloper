@@ -1,0 +1,252 @@
+/* ====== GLOBAL VARIABLES ====== */
+:root {
+  --bg-start: #0a0a0f;     /* near-black */
+  --bg-end: #1a1f2b;       /* deep blue-gray */
+  --text-main: #f5f7fa;
+  --text-muted: #9ca3af;
+  --accent: #5aa9ff;       /* bright blue accent */
+  --card-bg: #141821;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  --radius: 1rem;
+  --font-body: "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+/* ====== BASE ====== */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-body);
+  background: linear-gradient(145deg, var(--bg-start), var(--bg-end));
+  color: var(--text-main);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* ====== HEADER ====== */
+.site-header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(10, 10, 15, 0.6);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  z-index: 10;
+}
+
+.logo {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.6rem;
+  transition: background 0.25s;
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+/* ====== SECTIONS ====== */
+.section {
+  padding: 4rem 1.2rem;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+/* ====== ABOUT / HERO SECTION ====== */
+#about {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+#about h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+  color: #fff;
+}
+
+#about p {
+  font-size: 1.1rem;
+  max-width: 65ch;
+  color: var(--text-main);
+}
+
+.headshot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.headshot img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.headshot figcaption {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Side-by-side layout on large screens */
+@media (min-width: 900px) {
+  #about {
+    grid-template-columns: 1.3fr 0.8fr;
+  }
+  .headshot {
+    margin: 0;
+  }
+}
+
+/* ====== WHY SECTION ====== */
+#why ul {
+  padding-left: 1.2rem;
+}
+#why li {
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+}
+
+/* ====== SKILLS ====== */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+.chip {
+  background: var(--card-bg);
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+}
+
+/* ====== PROJECTS ====== */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.filter {
+  background: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: 0.6rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.filter.is-active,
+.filter:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card a {
+  color: var(--accent);
+}
+
+/* ====== PROGRESS LOG ====== */
+#log p {
+  color: var(--text-muted);
+}
+#log ol {
+  margin-top: 1rem;
+  color: var(--text-muted);
+}
+
+/* ====== CONTACT ====== */
+form {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 600px;
+}
+input,
+textarea,
+button {
+  font: inherit;
+  color: var(--text-main);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.8rem;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+button:hover {
+  background: #6db8ff;
+}
+
+.form-note {
+  color: var(--text-muted);
+  min-height: 1em;
+}
+
+/* ====== FOOTER ====== */
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
