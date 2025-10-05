@@ -209,13 +209,27 @@ html, body {
   margin-top: 1rem;
   color: var(--text-muted);
 }
-
 /* ====== CONTACT ====== */
 form {
   display: grid;
   gap: 0.8rem;
   max-width: 600px;
 }
+
+/* make each label stack its input/textarea nicely */
+form label {
+  display: grid;
+  gap: 0.4rem;
+  align-items: start;
+}
+
+/* ensure fields expand properly */
+form label > input,
+form label > textarea {
+  width: 100%;
+  display: block;
+}
+
 input,
 textarea,
 button {
